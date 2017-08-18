@@ -33,19 +33,44 @@ class farm
     puts "Exiting..."
   end
 
+  def main_menu
+    while true # repeat indefinitely
+      print_main_menu
+      user_selected = gets.to_s
+      harvest_option(user_selected)
+    end
+  end
+
+  def print_main_menu
+    puts ['field'] "adds a new field"
+    puts ['harvest'] "harvests crops and adds to total harvested"
+    puts ['status'] "displays some information about the farm"
+    puts ['relax'] "provides lovely descriptions of your fields"
+    puts ['exit'] "exits the program"
+  end
+
+  def harvest_option(user_selected)
+    case user_selected
+    when 'field' then add_new_field
+    when 'harvest' then update_harvest
+    when 'status' then show_status
+    when 'relax' then descriptions
+    when 'exit' then exit
+  end
 
 end
+#
+# def print_main_menu
+#   puts '[1] Add a new contact'
+#   puts '[2] Modify an existing contact'
+#   puts '[3] Delete a contact'
+#   puts '[4] Display all the contacts'
+#   puts '[5] Search by attribute'
+#   puts '[6] Exit'
+#   puts 'Enter a number: '
+# end
+#
 
-
-Farm.new
-puts "Options:
-field -> adds a new field
-harvest -> harvests crops and adds to total harvested
-status -> displays some information about the farm
-relax -> provides lovely descriptions of your fields
-exit -> exits the program"
-
-gets
 
 
 
